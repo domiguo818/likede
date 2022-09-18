@@ -56,7 +56,20 @@
     .svg-icon {
       margin-right: 16px;
     }
-
+        .el-menu {
+            border: none;
+            height: 100%;
+            width: 100% !important;
+            .el-menu-item {
+              color: #999 !important;
+              &.submenu-title-noDropdown {
+                color: #000 !important;
+              }
+              &.is-active {
+                color: $subMenuActiveText !important;
+              }
+            }
+          }
     .sub-el-icon {
       margin-right: 12px;
       margin-left: -2px;

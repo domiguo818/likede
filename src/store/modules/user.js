@@ -12,15 +12,16 @@ export default {
   },
   mutations: {
     setToken(state, payload) {
+      console.log(payload.token);
       state.token = payload.token;
       state.userId = payload.userId;
     },
     setUserInfo(state, payload) {
       state.userInfo = payload;
     },
-    logoutFn(state){
-      state.token=''
-    }
+    logoutFn(state) {
+      state.token = "";
+    },
   },
   actions: {
     async getToken(context, payload) {
@@ -29,6 +30,7 @@ export default {
       // console.log(a);
 
       const res = await login(a, b, c, d);
+      // console.log(res);
       // console.log(res);
       context.commit("setToken", res);
       //注入id
@@ -40,13 +42,12 @@ export default {
       // console.log(context);
     },
     async getUserInfos(context, payload) {
-      
       const res = await getUserInfo(context.state.userId);
       // console.log(res);
       context.commit("setUserInfo", res.data);
     },
-    logout(context){
-      context.commit('logoutFn')
-    }
+    logout(context) {
+      context.commit("logoutFn");
+    },
   },
 };
